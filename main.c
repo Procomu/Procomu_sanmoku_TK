@@ -30,6 +30,9 @@ void showBoard(){
 	}
 	printf("\n");
 }
+
+// comment by aira aziawa
+
 void putablestone(){
 	if(board[temprow][column]==8){
 		putable=0;
