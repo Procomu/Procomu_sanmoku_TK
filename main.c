@@ -40,7 +40,7 @@ void putablestone(){
 		putable=1;
 	}
 }
-void input(){
+void inputRow(){
 	printf("please input row : ");
 	fflush(stdin);
 	row=getchar();
@@ -55,35 +55,48 @@ void input(){
 			temprow=2;
 			break;
 		default:
-		input();
+		printf("please retry");
+		inputRow();
 			break;
 	}
 	printf("\n");
+}
+void inputColumn(){
 	printf("please input column : ");
 	fflush(stdin);
 	scanf("%d",&column);
-	putablestone();
-	if(putable==1){
-		input();
-	}else{
-		board[temprow][column]=Stone;
+	switch(column){
+		case 0:
+		case 1:
+		case 2:
+			break;
+		default:
+		printf("please retry");
+		inputColumn();
+			break;
 	}
-}
-	int main(int argc, char **argv)
+	printf("\n");
+} 		
+int main(int argc, char **argv)
 {
 	printf("Start Game");
 	initPlayer();
 	initStone();
 	initBoard();
 	while(1==1){
-	showBoard();
-	input();
+		showBoard();
+		inputRow();
+		inputColumn();
+		putablestone();
+		if(putable==0){
+			board[temprow][column]=Stone;
+		}
+	}
 	printf("\n");
 	printf("showPlayer=%d",Player);
 	printf("\n");
 	printf("showStone=%d",Stone);
 	printf("temprow=%d",temprow);
 	printf("column=%d",column);
-	}
 	return 0;
 }
