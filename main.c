@@ -42,6 +42,7 @@ void putablestone(){
 }
 void input(){
 	printf("please input row : ");
+	fflush(stdin);
 	row=getchar();
 	switch(row){
 		case'a':
@@ -54,10 +55,12 @@ void input(){
 			temprow=2;
 			break;
 		default:
+		input();
 			break;
 	}
 	printf("\n");
 	printf("please input column : ");
+	fflush(stdin);
 	scanf("%d",&column);
 	putablestone();
 	if(putable==1){
